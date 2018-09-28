@@ -1,7 +1,8 @@
 #include "stdio.h"
 #include <stdlib.h>
 
-int a, b, luachon;
+int a, b;
+char luachon;
 
 int phepcong(int a, int b) {
     return a + b;
@@ -38,25 +39,23 @@ int main() {
     printf("vui long nhap so b: ");
     scanf("%d", &b);
     taomenu();
-
-    printf("nhap lua chon cua ban (1|2|3|4)\n");
-    scanf("%d", &luachon);
+//    getchar();
+    fgetc(stdin);
+    printf("nhap lua chon cua ban (+|-|*|/)\n");
+    scanf("%c", &luachon);
     switch (luachon) {
-        case 1:
+        case '+':
             printf("ket qua: %d + %d =%d", a, b, a + b);
             break;
-        case 2:
+        case '-':
             printf("ket qua: %d - %d =%d", a, b, a - b);
             break;
-        case 3:
+        case '*':
             printf("ket qua: %d * %d = %d", a, b, a * b);
             break;
-        case 4:
+        case '/':
             printf("ket qua: %d / %d = %.4f", a, b, phepchia(a, b));
             break;
-        case 5:
-            printf(" hen gap lai");
-            exit(1);
         default:
             printf("lua chon sai");
             break;
