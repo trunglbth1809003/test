@@ -22,6 +22,7 @@ float phepchia(int q, int b) {
     }
     return (float) a / b;
 }
+
 void taomenu() {
     printf("lua chon phep tinh:\n");
     printf("1. phep cong\n");
@@ -29,6 +30,7 @@ void taomenu() {
     printf("3. phep nhan\n");
     printf("4. phep chia\n");
 }
+
 int main() {
 
     printf("vui long nhap so a: ");
@@ -39,20 +41,25 @@ int main() {
 
     printf("nhap lua chon cua ban (1|2|3|4)\n");
     scanf("%d", &luachon);
-    if (luachon == 1) {
-        printf("chon phep cong\n");
-        printf("ket qua: %d + %d =%d", a, b, a + b);
-    } else if (luachon == 2) {
-        printf("chon phep tru\n");
-        printf("ket qua: %d - %d =%d", a, b, a - b);
-    } else if (luachon == 3) {
-        printf("chon phep nhan\n");
-        printf("ket qua: %d * %d = %d", a, b, a * b);
-    } else if (luachon == 4) {
-        printf("chon phep chia\n");
-        printf("ket qua: %d / %d = %.4f", a, b, phepchia(a, b));
-    } else {
-        printf("lua chon sai");
+    switch (luachon) {
+        case 1:
+            printf("ket qua: %d + %d =%d", a, b, a + b);
+            break;
+        case 2:
+            printf("ket qua: %d - %d =%d", a, b, a - b);
+            break;
+        case 3:
+            printf("ket qua: %d * %d = %d", a, b, a * b);
+            break;
+        case 4:
+            printf("ket qua: %d / %d = %.4f", a, b, phepchia(a, b));
+            break;
+        case 5:
+            printf(" hen gap lai");
+            exit(1);
+        default:
+            printf("lua chon sai");
+            break;
     }
 
     return 0;
