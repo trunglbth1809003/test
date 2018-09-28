@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 int a, b;
-char luachon;
+int luachon;
+int i = 1;
 
 int phepcong(int a, int b) {
     return a + b;
@@ -25,41 +26,49 @@ float phepchia(int q, int b) {
 }
 
 void taomenu() {
-    printf("lua chon phep tinh:\n");
-    printf("1. phep cong\n");
-    printf("2. phep tru\n");
-    printf("3. phep nhan\n");
-    printf("4. phep chia\n");
+    printf("Ban muon gi:\n");
+    printf("1. Lam phep cong\n");
+    printf("2. Lam phep tru\n");
+    printf("3. Lam phep nhan\n");
+    printf("4. Lam phep chia\n");
+    printf("5. thoat chuong trinh\n5");
 }
 
 int main() {
+    while (1 == 1) {
 
-    printf("vui long nhap so a: ");
-    scanf("%d", &a);
-    printf("vui long nhap so b: ");
-    scanf("%d", &b);
-    taomenu();
+        printf("vui long nhap so a: ");
+        scanf("%d", &a);
+        printf("vui long nhap so b: ");
+        scanf("%d", &b);
+        taomenu();
 //    getchar();
-    fgetc(stdin);
-    printf("nhap lua chon cua ban (+|-|*|/)\n");
-    scanf("%c", &luachon);
-    switch (luachon) {
-        case '+':
-            printf("ket qua: %d + %d =%d", a, b, a + b);
-            break;
-        case '-':
-            printf("ket qua: %d - %d =%d", a, b, a - b);
-            break;
-        case '*':
-            printf("ket qua: %d * %d = %d", a, b, a * b);
-            break;
-        case '/':
-            printf("ket qua: %d / %d = %.4f", a, b, phepchia(a, b));
-            break;
-        default:
-            printf("lua chon sai");
-            break;
+        printf("nhap lua chon cua ban (1|2|3|4|5)\n");
+        scanf("%d", &luachon);
+        switch (luachon) {
+            case 1:
+                printf("ket qua: %d + %d =%d", a, b, phepcong(a,b));
+                break;
+            case 2:
+                printf("ket qua: %d - %d =%d", a, b, pheptru(a,b));
+                break;
+            case 3:
+                printf("ket qua: %d * %d = %d", a, b, phepnhan(a,b));
+                break;
+            case 4:
+                printf("ket qua: %d / %d = %.4f\n", a, b, phepchia(a, b));
+                break;
+            case 5:
+                printf("hen gap lai.");
+                exit(1);
+            default:
+                printf("lua chon sai");
+                break;
+
+        }
+        printf("\n");
     }
 
     return 0;
+
 }
